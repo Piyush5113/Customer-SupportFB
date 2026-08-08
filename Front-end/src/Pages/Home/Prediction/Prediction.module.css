@@ -1,0 +1,273 @@
+.predictionPage {
+    width: 100%;
+    min-height: 100vh;
+    background: #000;
+    color: #fff;
+    padding: 120px 7%;
+  }
+  
+  .heading {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  
+  .heading p {
+    color: #1c69d4;
+    letter-spacing: 3px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  
+  .heading h1 {
+    font-size: 68px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+  
+  .wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  
+  .formCard {
+    flex: 2;
+    background: #111;
+    border: 1px solid #262626;
+    padding: 40px;
+    transition: .4s;
+  }
+  
+  .formCard:hover {
+    border-color: #1c69d4;
+  }
+  
+  .formCard h2 {
+    font-size: 30px;
+    margin-bottom: 35px;
+    font-weight: 700;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .full {
+    grid-column: 1 / span 2;
+  }
+  
+  .grid div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .grid label {
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #9a9a9a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .grid input,
+  .grid select {
+    height: 55px;
+    background: #1b1b1b;
+    border: 1px solid #2d2d2d;
+    color: #fff;
+    padding: 0 18px;
+    font-size: 15px;
+    outline: none;
+    transition: .3s;
+  }
+  
+  .grid input:focus,
+  .grid select:focus {
+    border-color: #1c69d4;
+  }
+  
+  .grid input::placeholder {
+    color: #666;
+  }
+  
+  .predictBtn {
+    width: 100%;
+    margin-top: 35px;
+    height: 58px;
+    background: #1c69d4;
+    color: #fff;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .35s;
+  }
+  
+  .predictBtn:hover {
+    background: #fff;
+    color: #000;
+  }
+  
+  .sideCard {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .infoCard {
+    background: #111;
+    border: 1px solid #262626;
+    padding: 35px;
+    transition: .35s;
+  }
+  
+  .infoCard:hover {
+    transform: translateY(-8px);
+    border-color: #1c69d4;
+  }
+  
+  .infoCard svg {
+    color: #1c69d4;
+    margin-bottom: 20px;
+  }
+  
+  .infoCard h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .infoCard p {
+    color: #9d9d9d;
+    line-height: 1.7;
+  }
+  
+  .resultCard {
+    margin-top: 70px;
+    background: #111;
+    border: 1px solid #262626;
+    padding: 45px;
+    animation: fadeUp .6s ease;
+  }
+  
+  .resultCard h2 {
+    font-size: 48px;
+    color: #1c69d4;
+    margin-bottom: 20px;
+  }
+  
+  .resultCard p {
+    color: #c5c5c5;
+    line-height: 1.8;
+  }
+  
+  .resultCard span {
+    float: right;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .progress {
+    width: 100%;
+    height: 12px;
+    background: #222;
+    margin: 25px 0;
+    overflow: hidden;
+  }
+  
+  .progress div {
+    height: 100%;
+    background: linear-gradient(90deg, #1c69d4, #3c8dff);
+    transition: width .8s ease;
+  }
+  
+  .resultCard h4 {
+    margin-bottom: 10px;
+    font-size: 22px;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(35px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Scrollbar */
+  
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #1c69d4;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+  
+  /* Responsive */
+  
+  @media (max-width:1100px) {
+  
+    .wrapper {
+      flex-direction: column;
+    }
+  
+    .sideCard {
+      width: 100%;
+      flex-direction: row;
+    }
+  
+    .infoCard {
+      flex: 1;
+    }
+  
+  }
+  
+  @media (max-width:768px) {
+  
+    .predictionPage {
+      padding: 90px 25px;
+    }
+  
+    .heading h1 {
+      font-size: 42px;
+    }
+  
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .full {
+      grid-column: auto;
+    }
+  
+    .sideCard {
+      flex-direction: column;
+    }
+  
+    .formCard {
+      padding: 25px;
+    }
+  
+    .resultCard {
+      padding: 25px;
+    }
+  
+    .resultCard h2 {
+      font-size: 34px;
+    }
+  
+  }

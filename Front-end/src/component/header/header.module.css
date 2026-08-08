@@ -99,3 +99,17 @@
   
       color:black;
   }
+
+  .nav a {
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+  }
+  
+  .nav a:hover {
+    color: #1c69d4;
+  }
+  
+  .nav a.active {
+    color: #1c69d4;
+  }

@@ -1,4 +1,5 @@
 import styles from "./Header.module.css";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -10,13 +11,30 @@ const Header = () => {
         </a>
 
         <nav className={styles.nav}>
-          <a href="#">HOME</a>
-          <a href="#">PREDICTION</a>
-          <a href="#">ANALYTICS</a>
-          <a href="#">MODEL</a>
-          <a href="#">ABOUT</a>
-          <a href="#">CONTACT</a>
-        </nav>
+
+<NavLink to="/">HOME</NavLink>
+
+<NavLink to="/prediction">
+  PREDICTION
+</NavLink>
+
+<NavLink to="/analytics">
+  ANALYTICS
+</NavLink>
+
+<NavLink to="/model">
+  MODEL
+</NavLink>
+
+<NavLink to="/about">
+  ABOUT
+</NavLink>
+
+<NavLink to="/contact">
+  CONTACT
+</NavLink>
+
+</nav>
 
         <button className={styles.github}>
           GITHUB
