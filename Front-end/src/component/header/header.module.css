@@ -1,0 +1,101 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  
+    background: rgba(0, 0, 0, .65);
+    backdrop-filter: blur(20px);
+  
+    border-bottom: 1px solid #222;
+  }
+  
+  .container{
+      max-width:1400px;
+      margin:auto;
+  
+      height:80px;
+  
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+  
+      padding:0 50px;
+  }
+  
+  .logo{
+  
+      text-decoration:none;
+  
+      font-size:32px;
+  
+      font-weight:700;
+  
+      letter-spacing:2px;
+  
+      color:white;
+  
+      display:flex;
+  
+      align-items:center;
+  }
+  
+  .logoAccent{
+  
+      color:#1c69d4;
+  }
+  
+  .logoText{
+  
+      color:white;
+  }
+  
+  .nav{
+  
+      display:flex;
+  
+      gap:45px;
+  }
+  
+  .nav a{
+  
+      color:#bdbdbd;
+  
+      text-decoration:none;
+  
+      font-size:14px;
+  
+      letter-spacing:2px;
+  
+      transition:.3s;
+  }
+  
+  .nav a:hover{
+  
+      color:white;
+  }
+  
+  .github{
+  
+      background:transparent;
+  
+      color:white;
+  
+      border:1px solid #fff;
+  
+      padding:12px 28px;
+  
+      cursor:pointer;
+  
+      letter-spacing:2px;
+  
+      transition:.35s;
+  }
+  
+  .github:hover{
+  
+      background:white;
+  
+      color:black;
+  }
