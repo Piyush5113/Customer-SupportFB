@@ -1,31 +1,12 @@
 import styles from "./Analytics.module.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export const Analytics = () => {
-  // Stat Data from EDA
-  const datasetOverview = [
-    { label: "Total Records", value: "85,907" },
-    { label: "Satisfied", value: "82.46%" },
-    { label: "Not Satisfied", value: "17.54%" },
-    { label: "Total Features", value: "20" },
-  ];
-
-  const insightsData = [
-    { label: "Top Performing Channel", value: "Email", tag: "High Volume" },
-    { label: "Most Delayed Channel", value: "Chat", tag: "Needs Attention" },
-    { label: "Highest Satisfaction", value: "Phone", tag: "Top Rated" },
-    {
-      label: "Lowest Satisfaction",
-      value: "Delayed Tickets",
-      tag: "Critical Insight",
-    },
-  ];
-
-  const mlMetrics = [
-    { label: "Accuracy", value: "92%" },
-    { label: "Precision", value: "91%" },
-    { label: "Recall", value: "90%" },
-    { label: "F1 Score", value: "91%" },
-  ];
+  
+const [datasetOverview,setDatasetOverview]=useState([]);
+const [insightsData,setInsightsData]=useState([]);
+const [mlMetrics,setMlMetrics]=useState([]);
 
   const chartCards = [
     {
@@ -79,6 +60,78 @@ export const Analytics = () => {
       description: "Satisfaction drill-down by category",
     },
   ];
+
+  useEffect(()=>{
+
+    fetchAnalytics();
+    
+    },[]);
+
+    const fetchAnalytics = async () => {
+
+        try{
+    
+            const res = await axios.get("http://127.0.0.1:5000/analytics");
+    
+            setDatasetOverview([
+    
+                {
+                    label:"Total Records",
+                    value:res.data.dataset.records
+                },
+    
+                {
+                    label:"Satisfied",
+                    value:res.data.dataset.satisfied
+                },
+    
+                {
+                    label:"Not Satisfied",
+                    value:res.data.dataset.not_satisfied
+                },
+    
+                {
+                    label:"Features",
+                    value:res.data.dataset.features
+                }
+    
+            ]);
+    
+            setInsightsData(res.data.insights);
+    
+            setMlMetrics([
+    
+                {
+                    label:"Accuracy",
+                    value:res.data.metrics.accuracy
+                },
+    
+                {
+                    label:"Precision",
+                    value:res.data.metrics.precision
+                },
+    
+                {
+                    label:"Recall",
+                    value:res.data.metrics.recall
+                },
+    
+                {
+                    label:"F1 Score",
+                    value:res.data.metrics.f1
+                }
+    
+            ]);
+    
+        }
+    
+        catch(err){
+    
+            console.log(err);
+    
+        }
+    
+    }
 
   return (
     <section className={styles.container} aria-labelledby="analytics-heading">

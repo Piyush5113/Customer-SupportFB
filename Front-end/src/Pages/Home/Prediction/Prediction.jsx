@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./Prediction.module.css";
 import { BrainCircuit, ShieldCheck, Database } from "lucide-react";
+import axios from "axios";
 
 const Prediction = () => {
   const [formData, setFormData] = useState({
@@ -23,22 +24,33 @@ const Prediction = () => {
     });
   };
 
-  const handlePredict = (e) => {
+  const handlePredict = async (e) => {
     e.preventDefault();
-
+  
     setLoading(true);
-
-    setTimeout(() => {
+  
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:5000/predict",
+        formData
+      );
+  
       setResult({
-        prediction: "Satisfied",
-        confidence: 91.42,
-        probability: 91,
+        prediction: response.data.prediction,
+        confidence: response.data.confidence,
+        probability: response.data.confidence,
         recommendation:
-          "Customer is highly likely to be satisfied with the provided interaction details.",
+          response.data.prediction === "Satisfied"
+            ? "Customer is highly likely to be satisfied."
+            : "Customer may require immediate attention.",
       });
-
-      setLoading(false);
-    }, 2000);
+    } catch (error) {
+      console.log(error);
+  
+      alert("Prediction Failed");
+    }
+  
+    setLoading(false);
   };
 
   return (
